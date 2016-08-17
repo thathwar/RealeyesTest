@@ -5,8 +5,10 @@ using System.Web;
 
 namespace EXCHNG.ExchngWebApp.Models
 {
-    public class CurrencyExchangeViewModel
+    public class CurrencyInfoModel
     {
+        public string ErrorMessage { get; set; }
 
+        public List<string> Currencies { get; set; }
     }
 }
