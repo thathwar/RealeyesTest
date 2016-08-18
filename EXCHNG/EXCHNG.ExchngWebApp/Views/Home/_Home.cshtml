@@ -1,4 +1,40 @@
-﻿<!-- ko with: home -->
-
-
+﻿@model EXCHNG.ExchngWebApp.Models.CurrencyInfoModel
+<!-- ko with: home -->
+<div class="jumbotron">
+    <div class="row">
+        <span class="h4">1 <span data-bind="text:fromCurrency"></span> equals</span>
+        <br/>
+        <span class="h3"> <span data-bind="text:conversionValue"></span> <span data-bind="text:toCurrency"></span></span>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-md-1">
+            <input class="form-control"/>
+        </div>
+        <div class="col-md-2">
+            <select class="form-control">
+                <option value="SELECT">Select</option>
+                @foreach (var cu in Model.Currencies)
+                {
+                    <option value="@cu">@cu</option>
+                }
+            </select>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-1">
+            <input class="form-control" />
+        </div>
+        <div class="col-md-2">
+            <select class="form-control">
+                <option value="SELECT">Select</option>
+                @foreach (var cu in Model.Currencies)
+                {
+                    <option value="@cu">@cu</option>
+                }
+            </select>
+        </div>
+    </div>
+</div>
 <!-- /ko -->
