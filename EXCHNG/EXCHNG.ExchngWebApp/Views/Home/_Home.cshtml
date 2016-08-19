@@ -1,39 +1,88 @@
 ﻿@model EXCHNG.ExchngWebApp.Models.CurrencyInfoModel
 <!-- ko with: home -->
-<div class="jumbotron">
-    <div class="row">
-        <span class="h4">1 <span data-bind="text:fromCurrency"></span> equals</span>
-        <br/>
-        <span class="h3"> <span data-bind="text:conversionValue"></span> <span data-bind="text:toCurrency"></span></span>
-    </div>
-    <br/>
-    <div class="row">
-        <div class="col-md-1">
-            <input class="form-control"/>
-        </div>
-        <div class="col-md-2">
-            <select class="form-control">
-                <option value="SELECT">Select</option>
-                @foreach (var cu in Model.Currencies)
-                {
-                    <option value="@cu">@cu</option>
-                }
-            </select>
-        </div>
-    </div>
-    <br />
-    <div class="row">
-        <div class="col-md-1">
-            <input class="form-control" />
-        </div>
-        <div class="col-md-2">
-            <select class="form-control">
-                <option value="SELECT">Select</option>
-                @foreach (var cu in Model.Currencies)
-                {
-                    <option value="@cu">@cu</option>
-                }
-            </select>
+<div class="shadow">
+    <div class="content">
+        <div class="row">
+            <div class="col-lg-6">
+                <h4>Currency Exchange</h4>
+                <br/>
+                <div class="min-left-padding" data-bind="visible: exchangeTextVisible">
+                    <span class="h5">1 <span data-bind="text:fromCurrency"></span> equals</span>
+                    <br />
+                    <span class="h3"> <span data-bind="text:conversionValue"></span> <span data-bind="text:toCurrency"></span></span>
+                </div>
+                <br />
+                <div class="row min-left-padding">
+                    <div class="col-md-4">
+                        <input class="form-control" id="fromValue" data-bind="value:fromValue, valueUpdate: 'afterkeydown', event:{'keyup':onFromValueChange}" />
+                    </div>
+                    <div class="col-md-4">
+                        <select class="form-control" data-bind="value:fromCurrency">
+                            <option value="SELECT">Select</option>
+                            @foreach (var cu in Model.Currencies)
+                            {
+                                <option value="@cu">@cu</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <br />
+                <div class="row min-left-padding">
+                    <div class="col-md-4">
+                        <input class="form-control" data-bind="value:toValue, enable:false" />
+                    </div>
+                    <div class="col-md-4">
+                        <select class="form-control" data-bind="value:toCurrency">
+                            <option value="SELECT">Select</option>
+                            @foreach (var cu in Model.Currencies)
+                            {
+                                <option value="@cu">@cu</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <br/>
+                <span data-bind="visible:computing" class="text-info min-left-padding">computing ....</span>
+                <div>
+                    <span class="text-danger" data-bind="text:errorMessage"></span>
+                    <span class="text-danger">@Model.ErrorMessage</span>
+                </div>
+            </div>
+            <div class="col-lg-6 partition">
+                <h4>Historical Graph</h4>
+                <br/>
+                <div class="row">
+                    <div  class="col-md-4">
+                        <select class="form-control small_control" data-bind="value:graphCurrency">
+                            <option value="SELECT">Select</option>
+                            @foreach (var cu in Model.Currencies)
+                            {
+                                <option value="@cu">@cu</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="text-info" data-bind="visible:loading">loading ....</span>
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="graph_container">
+                        <br/><br/><br/>
+                        <div id="chart_container">
+                            <div id="chart"></div>
+                            <div id="legend_container">
+                                <div id="smoother" title="Smoothing"></div>
+                                <div id="legend"></div>
+                            </div>
+                            <div id="slider"></div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <span class="text-danger" data-bind="text:errorMessageGraph"></span>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -4,7 +4,136 @@
     self.currencies = ko.observableArray();
     self.fromCurrency = ko.observable("SELECT");
     self.toCurrency = ko.observable("SELECT");
-    self.conversionValue = ko.observable(0);
+    self.graphCurrency = ko.observable("SELECT");
+    self.fromValue = ko.observable(0);
+    self.toValue = ko.observable(0);
+    self.conversionValue = ko.observable(0.0);
+    self.exchangeTextVisible = ko.observable(false);
+    self.computing = ko.observable(false);
+    self.loading = ko.observable(false);
+    self.errorMessageGraph = ko.observable("");
+
+    self.fromCurrency.subscribe(function (out) {
+        self.errorMessage("");
+
+        if (out == "SELECT") {
+            return;
+        }
+
+        compute();
+    });
+
+    self.toCurrency.subscribe(function (out) {
+        self.errorMessage("");
+
+        if (out == "SELECT") {
+            return;
+        }
+
+        compute();
+    });
+
+    self.onFromValueChange = function (data, e) {
+        if ((e.keyCode >= 48 && e.keyCode <= 57) || (e.keyCode >= 96 && e.keyCode <= 105) || e.keyCode == 8) {
+            self.errorMessage("");
+            compute();
+        }
+    };
+
+
+    self.graphCurrency.subscribe(function(out) {
+        self.errorMessageGraph("");
+        if (out == "SELECT") {
+            return;
+        }
+
+        self.loading(true);
+       // clearGraph();
+        dataModel.getHistoricalGraphData({ currency: self.graphCurrency() })
+        .done(function (output) {
+            if (output.errorMessage == null) {
+                var graph = new Rickshaw.Graph({
+                    element: document.getElementById("chart"),
+                    width: 400,
+                    height: 100,
+                    renderer: 'line',
+                    series: [
+                        {
+                            color: "#6060c0",
+                            data: output.graphDatas,
+                            name: output.currency
+                        }
+                    ]
+                });
+
+                graph.render();
+
+                var hoverDetail = new Rickshaw.Graph.HoverDetail({
+                    graph: graph
+                });
+
+                var legend = new Rickshaw.Graph.Legend({
+                    graph: graph,
+                    element: document.getElementById('legend')
+
+                });
+
+                var shelving = new Rickshaw.Graph.Behavior.Series.Toggle({
+                    graph: graph,
+                    legend: legend
+                });
+
+                var axes = new Rickshaw.Graph.Axis.Time({
+                    graph: graph,
+                });
+                axes.render();
+            }
+            else
+            {
+                self.errorMessageGraph(output.errorMessage);
+            }
+
+            self.loading(false);
+        })
+         .fail(function (output) {
+             self.loading(false);
+             self.errorMessageGraph(output.message);
+         });
+    });
+
+    function compute() {
+        if (self.fromCurrency() != "SELECT" && self.toCurrency() != "SELECT") {
+            self.computing(true);
+            dataModel.compute({
+                fromCurrency: self.fromCurrency(),
+                toCurrency: self.toCurrency(),
+                fromValue: $("#fromValue").val()
+            })
+                .done(function (output) {
+                    if (output.errorMessage == null) {
+                        self.toValue(parseFloat(output.toValue).toFixed(3));
+                        self.conversionValue(parseFloat(output.conversionValue).toFixed(3));
+                        self.exchangeTextVisible(true);
+                    } else {
+                        self.errorMessage(output.errorMessage);
+                        self.exchangeTextVisible(false);
+                    }
+                    self.computing(false);
+                })
+                .fail(function (output) {
+                    self.computing(false);
+                    self.errorMessage(output.message);
+                    self.exchangeTextVisible(false);
+                });
+        }
+    };
+
+    function clearGraph() {
+        $('#legend').empty();
+        $('#chart_container').html(
+          '<div id="chart"></div><div id="timeline"></div><div id="slider"></div>'
+        );
+    }
 
     return self;
 }

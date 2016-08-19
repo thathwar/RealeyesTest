@@ -15,6 +15,8 @@ namespace EXCHNG.ExchngWebApp.Models
 
         public decimal ToValue { get; set; }
 
+        public decimal ConversionValue { get; set; }
+
         public string ErrorMessage { get; set; }
     }
 }

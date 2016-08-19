@@ -34,3 +34,44 @@ textarea {
         padding: 10px 15px;
     }
 }
+
+.shadow {
+  margin: 42px;
+    background-color: linen;
+
+  -moz-box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
+  -webkit-box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
+  box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
+
+  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30)";
+  zoom: 1;
+}
+.shadow .content {
+  position: relative; /* This protects the inner element from being blurred */
+  padding: 1%;
+    min-height: 350px;
+}
+
+.partition {
+    border-left: 1px solid white;
+    min-height: 300px;
+}
+
+.small_control {
+    height: 30px;
+    width: 100px;
+}
+
+.min-left-padding {
+    padding-left: 2%;
+}
+
+.graph_container {
+    border: 1px solid #6060c0;
+    min-height: 200px;
+    padding: 5px;
+    width: 98%;
+    position: absolute;
+    bottom: 0;
+}

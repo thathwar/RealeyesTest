@@ -15,7 +15,11 @@ namespace EXCHNG.ExchngWebApp
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                 "~/Scripts/jquery.unobtrusive*",
-                "~/Scripts/jquery.validate*"));
+                "~/Scripts/jquery.validate*",
+                "~/Scripts/d3.v3.js",
+                "~/Scripts/rickshaw.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/rickshaw").Include( "~/Scripts/d3.v3.js","~/Scripts/rickshaw.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
                 "~/Scripts/knockout-{version}.js",
@@ -40,7 +44,11 @@ namespace EXCHNG.ExchngWebApp
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                  "~/Content/bootstrap.css",
-                 "~/Content/Site.css"));
+                 "~/Content/Site.css",
+                 "~/Content/graph.css",
+                 "~/Content/detail.css",
+                 "~/Content/legend.css",
+                 "~/Content/lines.css"));
         }
     }
 }
