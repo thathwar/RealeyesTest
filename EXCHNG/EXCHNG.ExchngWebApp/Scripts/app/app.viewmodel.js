@@ -2,14 +2,6 @@
     // Private state
     var self = this;
 
-    // Private operations
-    function cleanUpLocation() {
-        window.location.hash = "";
-
-        if (typeof (history.pushState) !== "undefined") {
-            history.pushState("", document.title, location.pathname);
-        }
-    }
     // Data
     self.Views = {
         Loading: {} // Other views are added dynamically by app.addViewModel(...).

@@ -54,9 +54,12 @@
         self.loading(true);
         clearGraphContainer();
         buildGraphContainer();
+
+        //call to server to get graph data
         dataModel.getHistoricalGraphData({ currency: self.graphCurrency() })
         .done(function (output) {
             if (output.errorMessage == null) {
+                //Draw rickshaw graph
                 var graph = new Rickshaw.Graph({
                     element: document.getElementById("chart"),
                     width: 400,
@@ -105,6 +108,7 @@
          });
     });
 
+    //call to server compute method
     function compute() {
         if (self.fromCurrency() != "SELECT" && self.toCurrency() != "SELECT") {
             self.computing(true);
