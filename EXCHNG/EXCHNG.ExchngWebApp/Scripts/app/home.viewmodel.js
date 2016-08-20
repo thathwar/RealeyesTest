@@ -16,8 +16,9 @@
 
     self.fromCurrency.subscribe(function (out) {
         self.errorMessage("");
-
         if (out == "SELECT") {
+            self.exchangeTextVisible(false);
+            self.toValue(0);
             return;
         }
 
@@ -26,8 +27,9 @@
 
     self.toCurrency.subscribe(function (out) {
         self.errorMessage("");
-
         if (out == "SELECT") {
+            self.exchangeTextVisible(false);
+            self.toValue(0);
             return;
         }
 
@@ -42,9 +44,10 @@
     };
 
 
-    self.graphCurrency.subscribe(function(out) {
+    self.graphCurrency.subscribe(function (out) {
         self.errorMessageGraph("");
         if (out == "SELECT") {
+            clearGraphContainer();
             return;
         }
 
@@ -90,8 +93,7 @@
                 });
                 axes.render();
             }
-            else
-            {
+            else {
                 self.errorMessageGraph(output.errorMessage);
             }
 
