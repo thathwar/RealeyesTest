@@ -45,6 +45,7 @@
         } else {
             navigator = function () {
                 window.location.hash = options.bindingMemberName;
+                self.view(viewItem);
             };
         }
 
@@ -52,9 +53,6 @@
         self["navigateTo" + options.name] = navigator;
     };
 
-    self.initialize = function () {
-        Sammy().run();
-    }
 }
 
 var app = new AppViewModel(new AppDataModel());
