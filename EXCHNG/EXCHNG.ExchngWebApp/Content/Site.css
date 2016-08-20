@@ -87,3 +87,14 @@ textarea {
      min-height: 200px;
     padding: 2%;
 }
+
+.fieldset-without-box {
+    border: 0 none;
+    border-radius: 3px;
+    box-sizing: border-box;
+    width: 98%;
+    height: 100%;
+    vertical-align: middle;
+     min-height: 200px;
+    padding: 2%;
+}
