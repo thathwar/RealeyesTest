@@ -12,6 +12,7 @@
     self.computing = ko.observable(false);
     self.loading = ko.observable(false);
     self.errorMessageGraph = ko.observable("");
+    self.graphContainer = ko.observable("");
 
     self.fromCurrency.subscribe(function (out) {
         self.errorMessage("");
@@ -48,7 +49,8 @@
         }
 
         self.loading(true);
-       // clearGraph();
+        clearGraphContainer();
+        buildGraphContainer();
         dataModel.getHistoricalGraphData({ currency: self.graphCurrency() })
         .done(function (output) {
             if (output.errorMessage == null) {
@@ -128,11 +130,12 @@
         }
     };
 
-    function clearGraph() {
-        $('#legend').empty();
-        $('#chart_container').html(
-          '<div id="chart"></div><div id="timeline"></div><div id="slider"></div>'
-        );
+    function clearGraphContainer() {
+        self.graphContainer("");
+    }
+
+    function buildGraphContainer() {
+        self.graphContainer('<div id="chart_container"><div id="chart"></div><div id="legend_container"><div id="smoother" title="Smoothing"></div><div id="legend"></div></div><div id="slider"></div></div>');
     }
 
     return self;

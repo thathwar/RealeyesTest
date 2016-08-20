@@ -1,0 +1,6 @@
+2016-08-20 10:25:46.4044|ERROR|HomeController|System.NullReferenceException: Object reference not set to an instance of an object.
+   at EXCHNG.ExchngWebApp.Providers.Compononents.XmlCurrencyProvider.GetCurrencies() in c:\Users\thrivikram\Documents\GitHub\RealeyesTest\EXCHNG\EXCHNG.ExchngWebApp\Providers\Compononents\XmlCurrencyProvider.cs:line 37
+   at EXCHNG.ExchngWebApp.Controllers.HomeController.Index() in c:\Users\thrivikram\Documents\GitHub\RealeyesTest\EXCHNG\EXCHNG.ExchngWebApp\Controllers\HomeController.cs:line 22
+2016-08-20 10:26:39.1181|ERROR|HomeController|System.NullReferenceException: Object reference not set to an instance of an object.
+   at EXCHNG.ExchngWebApp.Providers.Compononents.XmlCurrencyProvider.GetCurrencies() in c:\Users\thrivikram\Documents\GitHub\RealeyesTest\EXCHNG\EXCHNG.ExchngWebApp\Providers\Compononents\XmlCurrencyProvider.cs:line 26
+   at EXCHNG.ExchngWebApp.Controllers.HomeController.Index() in c:\Users\thrivikram\Documents\GitHub\RealeyesTest\EXCHNG\EXCHNG.ExchngWebApp\Controllers\HomeController.cs:line 22

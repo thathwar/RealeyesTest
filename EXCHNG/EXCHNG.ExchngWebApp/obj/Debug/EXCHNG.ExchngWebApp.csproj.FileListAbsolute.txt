@@ -65,7 +65,6 @@ C:\Users\thrivikram\Documents\GitHub\RealeyesTest\EXCHNG\EXCHNG.ExchngWebApp\obj
 C:\Users\thrivikram\Documents\GitHub\RealeyesTest\EXCHNG\EXCHNG.ExchngWebApp\bin\EXCHNG.ExchngWebApp.dll.config
 C:\Users\thrivikram\Documents\GitHub\RealeyesTest\EXCHNG\EXCHNG.ExchngWebApp\bin\EXCHNG.ExchngWebApp.dll
 C:\Users\thrivikram\Documents\GitHub\RealeyesTest\EXCHNG\EXCHNG.ExchngWebApp\bin\EXCHNG.ExchngWebApp.pdb
-C:\Users\thrivikram\Documents\GitHub\RealeyesTest\EXCHNG\EXCHNG.ExchngWebApp\bin\Antlr3.Runtime.dll
 C:\Users\thrivikram\Documents\GitHub\RealeyesTest\EXCHNG\EXCHNG.ExchngWebApp\bin\EntityFramework.dll
 C:\Users\thrivikram\Documents\GitHub\RealeyesTest\EXCHNG\EXCHNG.ExchngWebApp\bin\EntityFramework.SqlServer.dll
 C:\Users\thrivikram\Documents\GitHub\RealeyesTest\EXCHNG\EXCHNG.ExchngWebApp\bin\Microsoft.Web.Infrastructure.dll
@@ -81,8 +80,6 @@ C:\Users\thrivikram\Documents\GitHub\RealeyesTest\EXCHNG\EXCHNG.ExchngWebApp\bin
 C:\Users\thrivikram\Documents\GitHub\RealeyesTest\EXCHNG\EXCHNG.ExchngWebApp\bin\System.Web.WebPages.Deployment.dll
 C:\Users\thrivikram\Documents\GitHub\RealeyesTest\EXCHNG\EXCHNG.ExchngWebApp\bin\System.Web.WebPages.dll
 C:\Users\thrivikram\Documents\GitHub\RealeyesTest\EXCHNG\EXCHNG.ExchngWebApp\bin\System.Web.WebPages.Razor.dll
-C:\Users\thrivikram\Documents\GitHub\RealeyesTest\EXCHNG\EXCHNG.ExchngWebApp\bin\WebGrease.dll
-C:\Users\thrivikram\Documents\GitHub\RealeyesTest\EXCHNG\EXCHNG.ExchngWebApp\bin\Antlr3.Runtime.pdb
 C:\Users\thrivikram\Documents\GitHub\RealeyesTest\EXCHNG\EXCHNG.ExchngWebApp\bin\EntityFramework.xml
 C:\Users\thrivikram\Documents\GitHub\RealeyesTest\EXCHNG\EXCHNG.ExchngWebApp\bin\EntityFramework.SqlServer.xml
 C:\Users\thrivikram\Documents\GitHub\RealeyesTest\EXCHNG\EXCHNG.ExchngWebApp\bin\Newtonsoft.Json.xml
@@ -101,3 +98,5 @@ C:\Users\thrivikram\Documents\GitHub\RealeyesTest\EXCHNG\EXCHNG.ExchngWebApp\obj
 C:\Users\thrivikram\Documents\GitHub\RealeyesTest\EXCHNG\EXCHNG.ExchngWebApp\obj\Debug\EXCHNG.ExchngWebApp.pdb
 C:\Users\thrivikram\Documents\GitHub\RealeyesTest\EXCHNG\EXCHNG.ExchngWebApp\bin\NLog.dll
 C:\Users\thrivikram\Documents\GitHub\RealeyesTest\EXCHNG\EXCHNG.ExchngWebApp\bin\NLog.xml
+C:\Users\thrivikram\Documents\GitHub\RealeyesTest\EXCHNG\EXCHNG.ExchngWebApp\bin\AjaxMin.dll
+C:\Users\thrivikram\Documents\GitHub\RealeyesTest\EXCHNG\EXCHNG.ExchngWebApp\bin\WebGrease.dll
