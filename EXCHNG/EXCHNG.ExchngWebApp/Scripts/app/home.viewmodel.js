@@ -105,9 +105,6 @@
 
     function compute() {
         if (self.fromCurrency() != "SELECT" && self.toCurrency() != "SELECT") {
-            if (self.fromValue() <= 0) {
-                return;
-            }
             self.computing(true);
             dataModel.compute({
                 fromCurrency: self.fromCurrency(),
