@@ -17,7 +17,10 @@ namespace EXCHNG.ExchngWebApp.Providers.Compononents
         #endregion
 
         #region Public Methods
-
+        /// <summary>
+        /// Return available curencies from the data source
+        /// </summary>
+        /// <returns>list of string</returns>
         public List<string> GetCurrencies()
         {
             var list = new List<string>();
@@ -43,6 +46,11 @@ namespace EXCHNG.ExchngWebApp.Providers.Compononents
             return list;
         }
 
+        /// <summary>
+        /// Returns latest rates for the currencies provided
+        /// </summary>
+        /// <param name="currencies"></param>
+        /// <returns>list of rates</returns>
         public List<Rate> GetLatestRates(List<string> currencies)
         {
             var list = new List<Rate>();
@@ -72,6 +80,11 @@ namespace EXCHNG.ExchngWebApp.Providers.Compononents
             return list;
         }
 
+        /// <summary>
+        /// Provides a list of rates favaliable in the data source for a given currency
+        /// </summary>
+        /// <param name="currency"></param>
+        /// <returns>list of GraphData </returns>
         public List<GraphData> GetRatesForCompletePeriod(string currency)
         {
             var list = new List<GraphData>();
